@@ -24,7 +24,8 @@ namespace ContactManager.Models
         public DateTime DateAdded { get; set; }
 
         [Range(1,10, ErrorMessage = "Please select a category")]
-        public int CategoryId { get; internal set; }
+        public int CategoryId { get; set; }
+        public int CategoryID { get; internal set; }
         public Category? Category { get; set; }
 
         public String Slug => Firstname?.Replace(' ', '-').ToLower() + '-' + Lastname?.Replace(' ', '-').ToLower();
