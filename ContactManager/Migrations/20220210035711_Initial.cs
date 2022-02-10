@@ -10,7 +10,7 @@ namespace ContactManager.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categoriy",
+                name: "Categories",
                 columns: table => new
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false)
@@ -19,7 +19,7 @@ namespace ContactManager.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categoriy", x => x.CategoryId);
+                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,21 +34,21 @@ namespace ContactManager.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Organization = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CategoryID = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contacts", x => x.ContactId);
                     table.ForeignKey(
-                        name: "FK_Contacts_Categoriy_CategoryID",
-                        column: x => x.CategoryID,
-                        principalTable: "Categoriy",
+                        name: "FK_Contacts_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "Categoriy",
+                table: "Categories",
                 columns: new[] { "CategoryId", "Name" },
                 values: new object[,]
                 {
@@ -60,19 +60,19 @@ namespace ContactManager.Migrations
 
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "ContactId", "CategoryID", "DateAdded", "Email", "Firstname", "Lastname", "Organization", "Phone" },
+                columns: new[] { "ContactId", "CategoryId", "DateAdded", "Email", "Firstname", "Lastname", "Organization", "Phone" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(513), "frodo@gomain.ca", "Frodo", "Baggings", null, "416-123-1233" },
-                    { 2, 1, new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(539), "frodo@gomain.ca", "FPI", "Baggings", null, "416-123-1233" },
-                    { 3, 2, new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(541), "frodo@gomain.ca", "ABC", "Baggings", null, "416-123-1233" },
-                    { 4, 3, new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(543), "frodo@gomain.ca", "CFH", "Baggings", null, "416-123-1233" }
+                    { 1, 1, new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(77), "frodo@gomain.ca", "Frodo", "Baggings", null, "416-123-1233" },
+                    { 2, 1, new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(107), "frodo@gomain.ca", "FPI", "Baggings", null, "416-123-1233" },
+                    { 3, 2, new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(109), "frodo@gomain.ca", "ABC", "Baggings", null, "416-123-1233" },
+                    { 4, 3, new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(111), "frodo@gomain.ca", "CFH", "Baggings", null, "416-123-1233" }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contacts_CategoryID",
+                name: "IX_Contacts_CategoryId",
                 table: "Contacts",
-                column: "CategoryID");
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -81,7 +81,7 @@ namespace ContactManager.Migrations
                 name: "Contacts");
 
             migrationBuilder.DropTable(
-                name: "Categoriy");
+                name: "Categories");
         }
     }
 }

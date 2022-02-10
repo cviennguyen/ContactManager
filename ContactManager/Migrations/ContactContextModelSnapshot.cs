@@ -36,7 +36,7 @@ namespace ContactManager.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categoriy");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -69,7 +69,7 @@ namespace ContactManager.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"), 1L, 1);
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateAdded")
@@ -96,7 +96,7 @@ namespace ContactManager.Migrations
 
                     b.HasKey("ContactId");
 
-                    b.HasIndex("CategoryID");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Contacts");
 
@@ -104,8 +104,8 @@ namespace ContactManager.Migrations
                         new
                         {
                             ContactId = 1,
-                            CategoryID = 1,
-                            DateAdded = new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(513),
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(77),
                             Email = "frodo@gomain.ca",
                             Firstname = "Frodo",
                             Lastname = "Baggings",
@@ -114,8 +114,8 @@ namespace ContactManager.Migrations
                         new
                         {
                             ContactId = 2,
-                            CategoryID = 1,
-                            DateAdded = new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(539),
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(107),
                             Email = "frodo@gomain.ca",
                             Firstname = "FPI",
                             Lastname = "Baggings",
@@ -124,8 +124,8 @@ namespace ContactManager.Migrations
                         new
                         {
                             ContactId = 3,
-                            CategoryID = 2,
-                            DateAdded = new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(541),
+                            CategoryId = 2,
+                            DateAdded = new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(109),
                             Email = "frodo@gomain.ca",
                             Firstname = "ABC",
                             Lastname = "Baggings",
@@ -134,8 +134,8 @@ namespace ContactManager.Migrations
                         new
                         {
                             ContactId = 4,
-                            CategoryID = 3,
-                            DateAdded = new DateTime(2022, 2, 3, 11, 30, 51, 263, DateTimeKind.Local).AddTicks(543),
+                            CategoryId = 3,
+                            DateAdded = new DateTime(2022, 2, 9, 22, 57, 11, 551, DateTimeKind.Local).AddTicks(111),
                             Email = "frodo@gomain.ca",
                             Firstname = "CFH",
                             Lastname = "Baggings",
@@ -147,7 +147,7 @@ namespace ContactManager.Migrations
                 {
                     b.HasOne("ContactManager.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryID")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

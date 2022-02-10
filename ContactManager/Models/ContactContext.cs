@@ -6,7 +6,7 @@ namespace ContactManager.Models
     {
         public ContactContext(DbContextOptions<ContactContext> options) : base(options) { }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Category> Categoriy { get; set; }
+        public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
@@ -23,7 +23,7 @@ namespace ContactManager.Models
                 Lastname = "Baggings",
                 Phone = "416-123-1233",
                 Email = "frodo@gomain.ca",
-                CategoryID = 1,
+                CategoryId = 1,
                 DateAdded = DateTime.Now
             },
             new Contact
@@ -33,7 +33,7 @@ namespace ContactManager.Models
                 Lastname = "Baggings",
                 Phone = "416-123-1233",
                 Email = "frodo@gomain.ca",
-                CategoryID = 1,
+                CategoryId= 1,
                 DateAdded = DateTime.Now
             },
             new Contact
@@ -43,7 +43,7 @@ namespace ContactManager.Models
                 Lastname = "Baggings",
                 Phone = "416-123-1233",
                 Email = "frodo@gomain.ca",
-                CategoryID = 2,
+                CategoryId= 2,
                 DateAdded = DateTime.Now
             },
             new Contact
@@ -53,7 +53,7 @@ namespace ContactManager.Models
                 Lastname = "Baggings",
                 Phone = "416-123-1233",
                 Email = "frodo@gomain.ca",
-                CategoryID = 3,
+                CategoryId= 3,
                 DateAdded = DateTime.Now
             });
 
